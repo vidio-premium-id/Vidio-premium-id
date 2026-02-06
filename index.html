@@ -4,94 +4,121 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Movie Stream</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 <style>
-body{
-  margin:0;
-  font-family:Arial, sans-serif;
-  background:#0f0f0f;
-  color:white;
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:Poppins;background:#0b0b0f;color:white}
+
+/* NAVBAR */
+.nav{
+  display:flex;justify-content:space-between;align-items:center;
+  padding:15px 30px;background:#111;position:sticky;top:0;z-index:10
 }
-h2{margin:20px}
+.logo{font-size:22px;font-weight:600;color:red}
+
+/* SLIDER */
+.slider{position:relative;height:60vh;overflow:hidden}
+.slide{
+  position:absolute;width:100%;height:100%;
+  background-size:cover;background-position:center;
+  opacity:0;transition:1s
+}
+.slide.active{opacity:1}
+.overlay{position:absolute;bottom:40px;left:40px}
+.overlay h1{font-size:40px;margin-bottom:10px}
+.play-btn{
+  background:red;padding:10px 20px;border-radius:30px;
+  display:inline-block;cursor:pointer
+}
+
+/* CATEGORY GRID */
+h2{margin:25px}
 .grid{
   display:grid;
   grid-template-columns:repeat(auto-fill,minmax(160px,1fr));
-  gap:15px;
-  padding:20px;
+  gap:15px;padding:0 20px 30px
 }
 .card{
-  position:relative;
-  cursor:pointer;
-  overflow:hidden;
-  border-radius:10px;
+  position:relative;border-radius:12px;overflow:hidden;
+  cursor:pointer;transition:.3s
 }
-.card img{
-  width:100%;
-  display:block;
-  transition:0.3s;
-}
-.card:hover img{
-  transform:scale(1.1);
-  filter:brightness(1.2);
+.card img{width:100%;display:block}
+.card:hover{transform:scale(1.08)}
+.hd{
+  position:absolute;top:8px;right:8px;
+  background:red;padding:2px 6px;font-size:12px;border-radius:4px
 }
 .title{
-  position:absolute;
-  bottom:0;
-  width:100%;
-  padding:10px;
+  position:absolute;bottom:0;width:100%;
   background:linear-gradient(transparent,black);
-  font-size:14px;
+  padding:8px;font-size:13px
 }
 </style>
 </head>
 <body>
 
+<div class="nav">
+  <div class="logo">MOVIE STREAM</div>
+</div>
+
+<!-- SLIDER -->
+<div class="slider">
+  <div class="slide active" style="background-image:url('https://cdn.store.link/products/gorooshop9948990/vlhcz9-file_00000000cd9c7208adaddf2e0e2d4a21.png?versionId=czzuRHYhBcIXqMN9roO91yDUQJPYXeQe')">
+    <div class="overlay">
+      <h1>Vidio Terbaru</h1>
+      <div class="play-btn" onclick="go('https://iklan1.com','https://video1.com')">▶ Tonton</div>
+    </div>
+  </div>
+  <div class="slide" style="background-image:url('https://cdn.store.link/products/gorooshop9948990/gx9rrs-winda-cann-penjual-jus-buah-tobrut-colmek.webp?versionId=Y38pKyWGZEqH8lki0RtiMi8Y1R9TlQG1')">
+    <div class="overlay">
+      <h1>Action Populer</h1>
+      <div class="play-btn" onclick="go('https://otieu.com/4/10572544','https://kesukaan-pria.site/qsnOHb')">▶ Tonton</div>
+    </div>
+  </div>
+</div>
+
+<!-- ACTION -->
 <h2>🔥 Action</h2>
 <div class="grid">
-  <div class="card" onclick="go('https://iklan1.com','https://video1.com')">
-    <img src="https://via.placeholder.com/300x400">
-    <div class="title">Action 1</div>
-  </div>
-  <div class="card" onclick="go('https://iklan2.com','https://video2.com')">
-    <img src="https://via.placeholder.com/300x400">
-    <div class="title">Action 2</div>
-  </div>
-  <div class="card" onclick="go('https://iklan3.com','https://video3.com')">
-    <img src="https://via.placeholder.com/300x400">
-    <div class="title">Action 3</div>
-  </div>
-  <div class="card" onclick="go('https://iklan4.com','https://video4.com')">
-    <img src="https://via.placeholder.com/300x400">
-    <div class="title">Action 4</div>
-  </div>
-  <div class="card" onclick="go('https://iklan5.com','https://video5.com')">
-    <img src="https://via.placeholder.com/300x400">
-    <div class="title">Action 5</div>
-  </div>
+  <div class="card" onclick="go('https://iklan1.com','https://video1.com')"><span class="hd">HD</span><img src="https://via.placeholder.com/300x400"><div class="title">Action 1</div></div>
+  <div class="card" onclick="go('https://iklan2.com','https://video2.com')"><span class="hd">HD</span><img src="https://via.placeholder.com/300x400"><div class="title">Action 2</div></div>
+  <div class="card" onclick="go('https://iklan3.com','https://video3.com')"><span class="hd">HD</span><img src="https://via.placeholder.com/300x400"><div class="title">Action 3</div></div>
+  <div class="card" onclick="go('https://iklan4.com','https://video4.com')"><span class="hd">HD</span><img src="https://via.placeholder.com/300x400"><div class="title">Action 4</div></div>
+  <div class="card" onclick="go('https://iklan5.com','https://video5.com')"><span class="hd">HD</span><img src="https://via.placeholder.com/300x400"><div class="title">Action 5</div></div>
 </div>
 
+<!-- ROMANCE -->
 <h2>❤️ Romance</h2>
 <div class="grid">
-  <div class="card" onclick="go('https://iklan6.com','https://video6.com')"><img src="https://via.placeholder.com/300x400"><div class="title">Romance 1</div></div>
-  <div class="card" onclick="go('https://iklan7.com','https://video7.com')"><img src="https://via.placeholder.com/300x400"><div class="title">Romance 2</div></div>
-  <div class="card" onclick="go('https://iklan8.com','https://video8.com')"><img src="https://via.placeholder.com/300x400"><div class="title">Romance 3</div></div>
-  <div class="card" onclick="go('https://iklan9.com','https://video9.com')"><img src="https://via.placeholder.com/300x400"><div class="title">Romance 4</div></div>
-  <div class="card" onclick="go('https://iklan10.com','https://video10.com')"><img src="https://via.placeholder.com/300x400"><div class="title">Romance 5</div></div>
+  <div class="card" onclick="go('https://iklan6.com','https://video6.com')"><span class="hd">HD</span><img src="https://via.placeholder.com/300x400"><div class="title">Romance 1</div></div>
+  <div class="card" onclick="go('https://iklan7.com','https://video7.com')"><span class="hd">HD</span><img src="https://via.placeholder.com/300x400"><div class="title">Romance 2</div></div>
+  <div class="card" onclick="go('https://iklan8.com','https://video8.com')"><span class="hd">HD</span><img src="https://via.placeholder.com/300x400"><div class="title">Romance 3</div></div>
+  <div class="card" onclick="go('https://iklan9.com','https://video9.com')"><span class="hd">HD</span><img src="https://via.placeholder.com/300x400"><div class="title">Romance 4</div></div>
+  <div class="card" onclick="go('https://iklan10.com','https://video10.com')"><span class="hd">HD</span><img src="https://via.placeholder.com/300x400"><div class="title">Romance 5</div></div>
 </div>
 
+<!-- SCIFI -->
 <h2>🚀 Sci-Fi</h2>
 <div class="grid">
-  <div class="card" onclick="go('https://iklan11.com','https://video11.com')"><img src="https://via.placeholder.com/300x400"><div class="title">Sci-Fi 1</div></div>
-  <div class="card" onclick="go('https://iklan12.com','https://video12.com')"><img src="https://via.placeholder.com/300x400"><div class="title">Sci-Fi 2</div></div>
-  <div class="card" onclick="go('https://iklan13.com','https://video13.com')"><img src="https://via.placeholder.com/300x400"><div class="title">Sci-Fi 3</div></div>
-  <div class="card" onclick="go('https://iklan14.com','https://video14.com')"><img src="https://via.placeholder.com/300x400"><div class="title">Sci-Fi 4</div></div>
-  <div class="card" onclick="go('https://iklan15.com','https://video15.com')"><img src="https://via.placeholder.com/300x400"><div class="title">Sci-Fi 5</div></div>
+  <div class="card" onclick="go('https://iklan11.com','https://video11.com')"><span class="hd">HD</span><img src="https://via.placeholder.com/300x400"><div class="title">Sci-Fi 1</div></div>
+  <div class="card" onclick="go('https://iklan12.com','https://video12.com')"><span class="hd">HD</span><img src="https://via.placeholder.com/300x400"><div class="title">Sci-Fi 2</div></div>
+  <div class="card" onclick="go('https://iklan13.com','https://video13.com')"><span class="hd">HD</span><img src="https://via.placeholder.com/300x400"><div class="title">Sci-Fi 3</div></div>
+  <div class="card" onclick="go('https://iklan14.com','https://video14.com')"><span class="hd">HD</span><img src="https://via.placeholder.com/300x400"><div class="title">Sci-Fi 4</div></div>
+  <div class="card" onclick="go('https://iklan15.com','https://video15.com')"><span class="hd">HD</span><img src="https://via.placeholder.com/300x400"><div class="title">Sci-Fi 5</div></div>
 </div>
 
 <script>
-function go(ad, video){
-  window.location.href = "redirect.html?ad="+encodeURIComponent(ad)+"&video="+encodeURIComponent(video);
+function go(ad,video){
+  window.location.href="redirect.html?ad="+encodeURIComponent(ad)+"&video="+encodeURIComponent(video);
 }
+let slides=document.querySelectorAll('.slide');
+let i=0;
+setInterval(()=>{
+  slides[i].classList.remove('active');
+  i=(i+1)%slides.length;
+  slides[i].classList.add('active');
+},4000);
 </script>
 
 </body>
-  </html>
+    </html>

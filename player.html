@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Video Player</title>
+<style>
+body{margin:0;background:black}
+iframe{width:100%;height:100vh;border:none}
+.back{
+position:fixed;
+top:10px;left:10px;
+background:red;color:white;
+padding:8px 14px;
+border-radius:20px;
+font-size:14px;
+cursor:pointer;
+z-index:10;
+}
+</style>
+</head>
+<body>
+
+<div class="back" onclick="history.back()">《=Kembali</div>
+<iframe id="videoFrame" allowfullscreen></iframe>
+
+<script>
+const urlParams = new URLSearchParams(window.location.search);
+const videoURL = urlParams.get("v");
+document.getElementById("videoFrame").src = videoURL;
+</script>
+
+</body>
+</html>

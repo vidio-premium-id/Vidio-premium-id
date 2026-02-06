@@ -3,36 +3,43 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Movie Stream</title>
+<title>Flem Premium</title>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-body{font-family:Poppins;background:#0b0b0f;color:white}
-
-/* NAVBAR */
-.nav{
-  display:flex;justify-content:space-between;align-items:center;
-  padding:15px 30px;background:#111;position:sticky;top:0;z-index:10
+body{
+  font-family:Poppins;
+  color:white;
+  overflow-x:hidden;
+  background:#0b0b0f;
 }
-.logo{font-size:22px;font-weight:600;color:red}
 
-/* SLIDER */
-.slider{position:relative;height:60vh;overflow:hidden}
-.slide{
-  position:absolute;width:100%;height:100%;
-  background-size:cover;background-position:center;
-  opacity:0;transition:1s
+/* BACKGROUND ANIMASI */
+.bg{
+  position:fixed;width:100%;height:100%;z-index:-1;
+  background:linear-gradient(270deg,#0f0f1a,#1a0f1f,#0f1a1a);
+  background-size:600% 600%;
+  animation:bgmove 15s ease infinite;
 }
+@keyframes bgmove{
+  0%{background-position:0% 50%}
+  50%{background-position:100% 50%}
+  100%{background-position:0% 50%}
+}
+
+.nav{text-align:center;padding:18px;font-size:22px;font-weight:600;color:red}
+
+/* HERO SLIDER */
+.hero{position:relative;height:200px;overflow:hidden;border-radius:0 0 20px 20px}
+.slide{position:absolute;width:100%;height:100%;opacity:0;transition:1s}
+.slide img{width:100%;height:100%;object-fit:cover;filter:brightness(55%)}
 .slide.active{opacity:1}
-.overlay{position:absolute;bottom:40px;left:40px}
-.overlay h1{font-size:40px;margin-bottom:10px}
-.play-btn{
-  background:red;padding:10px 20px;border-radius:30px;
-  display:inline-block;cursor:pointer
-}
+.hero-content{position:absolute;bottom:20px;left:20px;z-index:2}
+.watch-btn{background:red;padding:8px 16px;border-radius:25px;cursor:pointer}
 
-/* CATEGORY GRID */
-h2{margin:25px}
+/* GRID FILM */
+h2{margin:20px}
 .grid{
   display:grid;
   grid-template-columns:repeat(auto-fill,minmax(160px,1fr));
@@ -40,85 +47,148 @@ h2{margin:25px}
 }
 .card{
   position:relative;border-radius:12px;overflow:hidden;
-  cursor:pointer;transition:.3s
+  cursor:pointer;transition:.3s;
 }
-.card img{width:100%;display:block}
-.card:hover{transform:scale(1.08)}
-.hd{
-  position:absolute;top:8px;right:8px;
-  background:red;padding:2px 6px;font-size:12px;border-radius:4px
-}
-.title{
-  position:absolute;bottom:0;width:100%;
-  background:linear-gradient(transparent,black);
-  padding:8px;font-size:13px
-}
+.card img{width:100%}
+.card:hover{transform:scale(1.08);box-shadow:0 0 15px red,0 0 30px crimson}
+.hd{position:absolute;top:8px;right:8px;background:red;padding:2px 6px;font-size:12px;border-radius:4px}
+.title{position:absolute;bottom:0;width:100%;background:linear-gradient(transparent,black);padding:8px;font-size:13px}
+
+/* LOADING */
+#loading{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:#000;z-index:999;justify-content:center;align-items:center;flex-direction:column}
+.bar{width:80%;height:10px;background:#333;border-radius:20px;overflow:hidden;margin-top:20px}
+.fill{height:100%;width:0;background:red;animation:load 5s linear forwards}
+@keyframes load{to{width:100%}}
 </style>
 </head>
 <body>
 
-<div class="nav">
-  <div class="logo">MOVIE STREAM</div>
-</div>
+<div class="bg"></div>
+<div class="nav">☆KING☆BOKEP☆</div>
 
-<!-- SLIDER -->
-<div class="slider">
-  <div class="slide active" style="background-image:url('https://cdn.store.link/products/gorooshop9948990/vlhcz9-file_00000000cd9c7208adaddf2e0e2d4a21.png?versionId=czzuRHYhBcIXqMN9roO91yDUQJPYXeQe')">
-    <div class="overlay">
-      <h1>Vidio Terbaru</h1>
-      <div class="play-btn" onclick="go('https://iklan1.com','https://video1.com')">▶ Tonton</div>
-    </div>
-  </div>
-  <div class="slide" style="background-image:url('https://cdn.store.link/products/gorooshop9948990/gx9rrs-winda-cann-penjual-jus-buah-tobrut-colmek.webp?versionId=Y38pKyWGZEqH8lki0RtiMi8Y1R9TlQG1')">
-    <div class="overlay">
-      <h1>Action Populer</h1>
-      <div class="play-btn" onclick="go('https://otieu.com/4/10572544','https://kesukaan-pria.site/qsnOHb')">▶ Tonton</div>
-    </div>
+<!-- HERO -->
+<div class="hero">
+  <div class="slide active"><img src="https://cdn.store.link/products/gorooshop9948990/ezopw2-res%20aesthetic%20welcome%20banner.jpeg?versionId=wB3JR7GhMKImxdfwFNlnMI8Zpa8aH9W8"></div>
+  <div class="slide"><img src="https://cdn.store.link/products/gorooshop9948990/51imfp-562bf2a1-b073-4e80-b929-519b561826c0.jpeg?versionId=bXwU52Gyhe74h6xi5m0qnDpiJQBtn1c7"></div>
+  <div class="slide"><img src="https://cdn.store.link/products/gorooshop9948990/nve7n1-%E5%86%99%E7%9C%9F%202021-10-28%20%E5%8D%88%E5%89%8D10%2009%2054_png.jpeg?versionId=yaDINV2AeDc.oC7Z_.i8w_zS288D6N8L"></div>
+  <div class="hero-content">
   </div>
 </div>
 
-<!-- ACTION -->
-<h2>🔥 Action</h2>
+<!-- ACTION (5) -->
+<h2>VIRAL🔥🔥</h2>
 <div class="grid">
-  <div class="card" onclick="go('https://iklan1.com','https://video1.com')"><span class="hd">HD</span><img src="https://via.placeholder.com/300x400"><div class="title">Action 1</div></div>
-  <div class="card" onclick="go('https://iklan2.com','https://video2.com')"><span class="hd">HD</span><img src="https://via.placeholder.com/300x400"><div class="title">Action 2</div></div>
-  <div class="card" onclick="go('https://iklan3.com','https://video3.com')"><span class="hd">HD</span><img src="https://via.placeholder.com/300x400"><div class="title">Action 3</div></div>
-  <div class="card" onclick="go('https://iklan4.com','https://video4.com')"><span class="hd">HD</span><img src="https://via.placeholder.com/300x400"><div class="title">Action 4</div></div>
-  <div class="card" onclick="go('https://iklan5.com','https://video5.com')"><span class="hd">HD</span><img src="https://via.placeholder.com/300x400"><div class="title">Action 5</div></div>
+  <div class="card" onclick="go('https://myvidplay.com/d/dlomuiks6zl5')">
+    <span class="hd">HD</span>
+  <img src="https://cdn.store.link/products/gorooshop9948990/pqlfw2-tt9f5rbmmws6oy7j.jpg?versionId=utlIeuEGV6.vqix6dAme85HpqEFSWXPf">
+  <div class="title"></div>
+  </div>
+  <div class="card" onclick="go('https://myvidplay.com/d/kyenq5d63vem')">
+    <span class="hd">HD</span>
+    <img src="https://cdn.store.link/products/gorooshop9948990/0bhwx7-pkjru3pb3c1suzot.jpg?versionId=2Gn5J4tABz9MUnb5O60v8Mf1O44HjM7G">
+    <div class="title"></div>
+    </div>
+  <div class="card" onclick="go('https://myvidplay.com/d/0flhmpuelxmw')">
+    <span class="hd">HD</span>
+    <img src="https://cdn.store.link/products/gorooshop9948990/4-6o7g-5rgjqdnybwydv0e2.jpg?versionId=sdaeTkj2hgfWFbag4hVkVfgw8NVdJMo8">
+    <div class="title"></div>
+    </div>
+  <div class="card" onclick="go('https://myvidplay.com/d/yt7ro96h1j2c')">
+    <span class="hd">HD</span>
+    <img src="https://cdn.store.link/products/gorooshop9948990/4x3ivv-trvcvb928rqrpspd.jpg?versionId=5cWBsyxjgIYWOoxJM3pA9_qaZr1FqVYM">
+    <div class="title"></div>
+    </div>
+  <div class="card" onclick="go('https://myvidplay.com/d/50vkxkaat1y3')">
+    <span class="hd">HD</span>
+    <img src="https://cdn.store.link/products/gorooshop9948990/em2-82-7xuiy14e39cbrtd5.jpg?versionId=_A.kXAD85wWIsxpbv27yc7PNimBHbnk6">
+    <div class="title"></div>
+    </div>
 </div>
 
-<!-- ROMANCE -->
-<h2>❤️ Romance</h2>
+<!-- ROMANCE (5) -->
+<h2>TREBARU🚀</h2>
 <div class="grid">
-  <div class="card" onclick="go('https://iklan6.com','https://video6.com')"><span class="hd">HD</span><img src="https://via.placeholder.com/300x400"><div class="title">Romance 1</div></div>
-  <div class="card" onclick="go('https://iklan7.com','https://video7.com')"><span class="hd">HD</span><img src="https://via.placeholder.com/300x400"><div class="title">Romance 2</div></div>
-  <div class="card" onclick="go('https://iklan8.com','https://video8.com')"><span class="hd">HD</span><img src="https://via.placeholder.com/300x400"><div class="title">Romance 3</div></div>
-  <div class="card" onclick="go('https://iklan9.com','https://video9.com')"><span class="hd">HD</span><img src="https://via.placeholder.com/300x400"><div class="title">Romance 4</div></div>
-  <div class="card" onclick="go('https://iklan10.com','https://video10.com')"><span class="hd">HD</span><img src="https://via.placeholder.com/300x400"><div class="title">Romance 5</div></div>
+  <div class="card" onclick="go('https://myvidplay.com/d/0x1dqcpakfy3')">
+    <span class="hd">HD</span>
+    <img src="https://cdn.store.link/products/gorooshop9948990/0icl9j-8bfn4awjxt61uch8.jpg?versionId=_fPU4WSzxshlKqStItFoZutpvOwrC5W1">
+    <div class="title"></div>
+    </div>
+  <div class="card" onclick="go('https://myvidplay.com/d/eyzai3h5d303')">
+    <span class="hd">HD</span>
+    <img src="https://cdn.store.link/products/gorooshop9948990/1kmmz0-82zmtxou2xcvwdn8.jpg?versionId=S53J3Vh0IQeVTSVADmHo00MwOu6zIJHq">
+    <div class="title"></div>
+    </div>
+  <div class="card" onclick="go('https://myvidplay.com/d/vsum26gyhmmn')">
+    <span class="hd">HD</span>
+    <img src="https://cdn.store.link/products/gorooshop9948990/irfv9f-8zfd82d7x68cru88.jpg?versionId=MH.kTuQZrELMzJP1oQ7CX7pxxUUA9SMY">
+    <div class="title"></div>
+    </div>
+  <div class="card" onclick="go('https://myvidplay.com/d/wb03lujpbgo1')">
+    <span class="hd">HD</span>
+    <img src="https://cdn.store.link/products/gorooshop9948990/r8684w-wx0sxgtukvc75jqb.jpg?versionId=peUUSs9J0JjS0_LGmF_TI6hCOYptjMqL">
+    <div class="title"></div>
+    </div>
+  <div class="card" onclick="go('https://myvidplay.com/d/fxj29hirwn3t')">
+    <span class="hd">HD</span>
+    <img src="https://cdn.store.link/products/gorooshop9948990/qjl1az-mamjb1e6r4civk9u.jpg?versionId=ggUzPoTnceUnobtPacTQ2W0nXxVjN5v9">
+    <div class="title"></div>
+    </div>
 </div>
 
-<!-- SCIFI -->
-<h2>🚀 Sci-Fi</h2>
+<!-- SCIFI (5) -->
+<h2>BONUS😋</h2>
 <div class="grid">
-  <div class="card" onclick="go('https://iklan11.com','https://video11.com')"><span class="hd">HD</span><img src="https://via.placeholder.com/300x400"><div class="title">Sci-Fi 1</div></div>
-  <div class="card" onclick="go('https://iklan12.com','https://video12.com')"><span class="hd">HD</span><img src="https://via.placeholder.com/300x400"><div class="title">Sci-Fi 2</div></div>
-  <div class="card" onclick="go('https://iklan13.com','https://video13.com')"><span class="hd">HD</span><img src="https://via.placeholder.com/300x400"><div class="title">Sci-Fi 3</div></div>
-  <div class="card" onclick="go('https://iklan14.com','https://video14.com')"><span class="hd">HD</span><img src="https://via.placeholder.com/300x400"><div class="title">Sci-Fi 4</div></div>
-  <div class="card" onclick="go('https://iklan15.com','https://video15.com')"><span class="hd">HD</span><img src="https://via.placeholder.com/300x400"><div class="title">Sci-Fi 5</div></div>
+  <div class="card" onclick="go('https://myvidplay.com/d/61ulxpjl7rve')">
+    <span class="hd">HD</span>
+    <img src="https://cdn.store.link/products/gorooshop9948990/qckkf--m01zjijppzicc63l.jpg?versionId=FYQRtj9IwTOHxg_zMt6Zk9OSyb0XEgM2">
+    <div class="title"></div>
+    </div>
+  <div class="card" onclick="go('https://myvidplay.com/d/zgqin8uxio0w')">
+    <span class="hd">HD</span>
+    <img src="https://cdn.store.link/products/gorooshop9948990/vooeef-16xk1otyhujahtv0.jpg?versionId=6KtS6PH7PRKtF73h37GbWCtODIU.i5we">
+    <div class="title"></div>
+    </div>
+  <div class="card" onclick="go('https://myvidplay.com/d/ijdmje30j69k')">
+    <span class="hd">HD</span>
+    <img src="https://cdn.store.link/products/gorooshop9948990/u55z1q-lj9k9egx2c7vlgby.jpg?versionId=8.nUB54L2OOOVIoP8ug9zweYgzVLvMr3">
+    <div class="title"></div>
+    </div>
+  <div class="card" onclick="go('https://myvidplay.com/d/73zc16vht0qm')">
+    <span class="hd">HD</span>
+    <img src="https://cdn.store.link/products/gorooshop9948990/dxhk2h-im7xuftih0r2z98l.jpg?versionId=PsOHpQCOEswgbpBl.j1rGbovwfYlp8CS">
+    <div class="title"></div>
+    </div>
+  <div class="card" onclick="go('https://myvidplay.com/d/b8j5mzq2ehz8')">
+    <span class="hd">HD</span>
+    <img src="https://cdn.store.link/products/gorooshop9948990/mzr2ip-m0k7xkjxgxqe65l7.jpg?versionId=qqg6OUNPP31wxR1NwlOlTRwRzSAnI_cD">
+    <div class="title"></div>
+    </div>
+</div>
+
+<!-- LOADING -->
+<div id="loading">
+  <h2>Menyiapkan Video...</h2>
+  <div class="bar"><div class="fill"></div></div>
 </div>
 
 <script>
-function go(ad,video){
-  window.location.href="redirect.html?ad="+encodeURIComponent(ad)+"&video="+encodeURIComponent(video);
+const globalAd="https://otieu.com/4/10572544";
+
+function go(video){
+  window.open(globalAd,"_blank");
+  document.getElementById("loading").style.display="flex";
+  setTimeout(()=>{window.location.href=video},5000);
 }
-let slides=document.querySelectorAll('.slide');
-let i=0;
+
+/* AUTO SLIDE */
+let slides=document.querySelectorAll(".slide");
+let index=0;
 setInterval(()=>{
-  slides[i].classList.remove('active');
-  i=(i+1)%slides.length;
-  slides[i].classList.add('active');
+  slides[index].classList.remove("active");
+  index=(index+1)%slides.length;
+  slides[index].classList.add("active");
 },4000);
 </script>
 
 </body>
-    </html>
+</html>

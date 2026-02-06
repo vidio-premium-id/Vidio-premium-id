@@ -175,9 +175,12 @@ h2{margin:20px}
 const globalAd="https://otieu.com/4/10572544";
 
 function go(video){
-  window.open(globalAd,"_blank");
+  window.open(globalAd,"_blank"); // buka iklan
   document.getElementById("loading").style.display="flex";
-  setTimeout(()=>{window.location.href=video},5000);
+
+  setTimeout(()=>{
+    window.location.href = "player.html?v=" + encodeURIComponent(video);
+  }, 5000);
 }
 
 /* AUTO SLIDE */
@@ -191,4 +194,4 @@ setInterval(()=>{
 </script>
 
 </body>
-</html>
+  </html>
